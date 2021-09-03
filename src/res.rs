@@ -30,8 +30,16 @@ impl TodoList{
     }
 
     pub fn print_list(&self){
-        for item in &self.list{
-            println!("[{}] - {}", item.completed, item.name);
+        for (index, item) in self.list.iter().enumerate(){
+            println!("{} [{}] - {}", index, item.completed, item.name);
         }
     } 
+
+    pub fn mark(&mut self, index: usize){
+        if self.list[index].completed == ' '{
+            self.list[index].completed = 'X';
+        }else{
+            self.list[index].completed = ' ';
+        }
+    }
 }
