@@ -1,1 +1,2 @@
-0 [ ] - test
+0 [ ] - Say Hi to Todo app
+1 [ ] - just another test sample

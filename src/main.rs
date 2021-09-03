@@ -24,6 +24,11 @@ fn main() {
     // todo_list.add_to_list("Say Hi to Todo app".to_string());
     // todo_list.add_to_list("just another test sample".to_string());
     // todo_list.mark(0);
+    
+    match todo_list.read(){
+        Ok(_) => println!("\n[+] Todo List Opened\n"),
+        Err(why) => println!("error {}", why)
+    }
 
     match command {
         Command::Get => todo_list.print_list(),
