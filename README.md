@@ -16,3 +16,8 @@ To mark an item complete or incomplete
 
 To remove an item from the list
 `cargo run remove item_index`
+
+## To-do
+
+- [x] Finish the structure
+- [ ] Add database support for persistance

@@ -21,9 +21,9 @@ fn main() {
         _=> panic!("provide a proper argument")
         }; 
 
-    todo_list.add_to_list("Say Hi to Todo app".to_string());
-    todo_list.add_to_list("just another test sample".to_string());
-    todo_list.mark(0);
+    // todo_list.add_to_list("Say Hi to Todo app".to_string());
+    // todo_list.add_to_list("just another test sample".to_string());
+    // todo_list.mark(0);
 
     match command {
         Command::Get => todo_list.print_list(),
@@ -39,6 +39,10 @@ fn main() {
             todo_list.remove(index);
             todo_list.print_list();
         }
+    }
+    match todo_list.save(){
+        Ok(_) => println!("\n[+] Todo List Saved"),
+        Err(why) => println!("error {}", why)
     }
     // println!("{:#?}", arguments);
 }

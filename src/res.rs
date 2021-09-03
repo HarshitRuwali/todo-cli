@@ -46,4 +46,13 @@ impl TodoList{
     pub fn remove(&mut self, index: usize){
         self.list.remove(index);
     }
+
+    pub fn save(self) -> Result<(), std::io::Error> {
+        let mut content = String::new();
+        for (index, item) in self.list.iter().enumerate(){
+            let entry = format!("{} [{}] - {}\n", index, item.completed, item.name);
+            content.push_str(&entry);
+        }
+        std::fs::write("db.txt", content)
+    }
 }
