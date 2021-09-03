@@ -42,4 +42,8 @@ impl TodoList{
             self.list[index].completed = ' ';
         }
     }
+
+    pub fn remove(&mut self, index: usize){
+        self.list.remove(index);
+    }
 }

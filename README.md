@@ -13,3 +13,6 @@ To add an item
 
 To mark an item complete or incomplete
 `cargo run mark item_index`
+
+To remove an item from the list
+`cargo run remove item_index`

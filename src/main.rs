@@ -4,7 +4,8 @@ mod res;
 enum Command{
     Get,
     Add(String),
-    Mark(usize)
+    Mark(usize),
+    Remove(usize)
 }
 
 
@@ -16,6 +17,7 @@ fn main() {
         "get" => Command::Get,
         "add" => Command::Add(arguments[2].clone()),
         "mark" => Command::Mark(arguments[2].parse().expect("Error converting to int")),
+        "remove" => Command::Remove(arguments[2].parse().expect("Error converting to int")),
         _=> panic!("provide a proper argument")
         }; 
 
@@ -31,6 +33,10 @@ fn main() {
         },
         Command::Mark(index) => {
             todo_list.mark(index);
+            todo_list.print_list();
+        },
+        Command::Remove(index) => {
+            todo_list.remove(index);
             todo_list.print_list();
         }
     }
