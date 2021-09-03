@@ -1,27 +1,19 @@
 use std::env;
-
-struct TodoItem {
-    name: String,
-    completed: char
-}
+mod res;
 
 fn main() {
     let arguments : Vec<String> = env::args().collect();
     let command = arguments[1].clone();
-    let todo_item = TodoItem {
-        name: "Say Hi to Todo app".to_string(),
-        completed: ' '
-    };
 
-    let todo_list = vec![todo_item];
+    let mut todo_list = res::TodoList::new();
+
+    todo_list.add_to_list("Say Hi to Todo app".to_string());
 
     if command == "get"{
-        for item in todo_list{
-            println!("[{}] - {}", item.completed, item.name);
-        }
+        todo_list.print_list();
     }else if command == "add"{
         println!("We got a add");
     }
 
-    println!("{:#?}", arguments);
+    // println!("{:#?}", arguments);
 }
