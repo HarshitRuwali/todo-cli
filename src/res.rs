@@ -59,18 +59,40 @@ impl TodoList{
         fs::write("db.txt", content)
     }
 
-    pub fn read(&self, todo_list:&mut TodoList) -> Result<(), std::io::Error>{
-
+    pub fn read(&mut self) -> Result<(), std::io::Error>{
+    
         // let mut todo_list = TodoList::new();
-        todo_list.add_to_list("Say Hi to Todo app".to_string());        
+        // todo_list.add_to_list("Say Hi to Todo app".to_string());        
         let mut file = fs::File::open("db.txt")?;
         let mut content = String::new();
         file.read_to_string(&mut content)?;
         
 
         // let mut todo_list = TodoList::new();
-        // let mut index:usize = 0;
-        // for item in content.lines(){
+        let mut index:usize = 0;
+        for item in content.lines(){
+
+            // println!("{}", item);
+            item.to_string();
+
+
+            let slice = &item[8..]; 
+            // let char_val = values.next().expect("err");
+
+            println!("{}", slice);
+            // println!("{}", item.to_string.slice(1..6));
+            // let mut values = item.split(']');
+            // let mark_sym = values.next().expect("err");
+            // println!("{}", mark_sym);
+
+            // if mark_sym == "X".to_string(){
+            //     TodoList::mark(self, index);
+            // }
+
+            index += 1;
+            // println!("{}", index);
+
+            
         //     // println!("---");
         //     // println!("{}", content);
         //     // println!("+++");
@@ -86,7 +108,7 @@ impl TodoList{
 
         //     // index += 1;
         //     // let todo_item = TodoList::new();
-        // }
+        }
 
         Ok(())
     }
