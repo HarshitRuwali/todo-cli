@@ -21,3 +21,5 @@ To remove an item from the list
 
 - [x] Finish the structure
 - [ ] Add database support for persistance
+    - [x] add write support 
+    - [ ] add read support 

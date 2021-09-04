@@ -59,30 +59,34 @@ impl TodoList{
         fs::write("db.txt", content)
     }
 
-    pub fn read(&self) -> Result<(), std::io::Error>{
+    pub fn read(&self, todo_list:&mut TodoList) -> Result<(), std::io::Error>{
 
+        // let mut todo_list = TodoList::new();
+        todo_list.add_to_list("Say Hi to Todo app".to_string());        
         let mut file = fs::File::open("db.txt")?;
         let mut content = String::new();
         file.read_to_string(&mut content)?;
         
 
-        let mut todo_list = TodoList::new();
-        let mut index:usize = 0;
-        for item in content.lines(){
+        // let mut todo_list = TodoList::new();
+        // let mut index:usize = 0;
+        // for item in content.lines(){
+        //     // println!("---");
+        //     // println!("{}", content);
+        //     // println!("+++");
+        //     // let mut values = item.split(' ');
+        //     // let mark = values.next().expect("no mark");
+        //     // println!("{}", mark);
+        //     let mut values = item.split('-');
+        //     let task = values.next().expect("no task");
+        //     println!("{}", task);
+        //     // todo_list = TodoList::new();
+        //     // todo_list.mark(index);
+        //     // todo_list.add_to_list(task.to_string());
 
-            let mut values = item.split(' ');
-            let mark = values.next().expect("no mark");
-            println!("{}", mark);
-            let mut values = item.split('-');
-            let task = values.next().expect("no task");
-            
-            todo_list = TodoList::new();
-            todo_list.mark(index);
-            todo_list.add_to_list(task.to_string());
-
-            index += 1;
-            // let todo_item = TodoList::new();
-        }
+        //     // index += 1;
+        //     // let todo_item = TodoList::new();
+        // }
 
         Ok(())
     }

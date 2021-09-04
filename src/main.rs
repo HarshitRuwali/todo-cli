@@ -8,6 +8,7 @@ enum Command{
     Remove(usize)
 }
 
+// static mut todo_list:res::TodoList = res::TodoList::new();
 
 fn main() {
     let arguments : Vec<String> = env::args().collect();
@@ -25,10 +26,10 @@ fn main() {
     // todo_list.add_to_list("just another test sample".to_string());
     // todo_list.mark(0);
     
-    match todo_list.read(){
-        Ok(_) => println!("\n[+] Todo List Opened\n"),
-        Err(why) => println!("error {}", why)
-    }
+    todo_list.read(&mut todo_list);
+    //     Ok(_) => println!("\n[+] Todo List Opened\n"),
+    //     Err(why) => println!("error {}", why)
+    // }
 
     match command {
         Command::Get => todo_list.print_list(),
